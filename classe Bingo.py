@@ -17,10 +17,26 @@ class Bingo:
 
     def __getitem__(self, indice):
         return self.matrice[indice]
-
+        
+def lecture_grille(nom_fichier):
+     """lit un fichier de grille de bingo
+     1 ligne fichier = 1 ligne bingo 
+     les nombres sont séparés par des espaces
+     """
+    
+    tableau = []
+    
+    with open(nom_fichier) as fh:
+        for ligne in fh:
+            ligne = ligne.rstrip()
+            tb = ligne.split()
+            tb = [int(c) for c in tb]
+            tableau.append(tb)
+    #
+    return tableau
 
 if __name__ == "__main__":
-    T = [i**2 for i in range(25)]
+    la_grille = lecture_grille("grille.dat")
     b = Bingo(T)
     print(b)
     print(b[3][4][0])
