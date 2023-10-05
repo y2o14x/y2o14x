@@ -21,5 +21,6 @@ class Bingo:
 
 if __name__ == "__main__":
     T = [i**2 for i in range(25)]
-    b = b = Bingo(T)
-    print(b[0][2][0])
+    b = Bingo(T)
+    print(b)
+    print(b[3][4][0])
