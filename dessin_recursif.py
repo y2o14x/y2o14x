@@ -1,7 +1,10 @@
-def vk(profondeur, A, B):
+import transgeo as tg
+from PIL import Image, ImageDraw
+
+def vk(profondeur, A, B, **kwargs):
     if profondeur == 0:
-        CTX.line([A, B])
-        return 
+        CTX.line([A, B], **kwargs)
+        return
     #
     C = tg.homothetie(B, A, 1/3)
     E = tg.homothetie(B, A, 2/3)
@@ -10,3 +13,11 @@ def vk(profondeur, A, B):
     vk(profondeur - 1, C, D)
     vk(profondeur - 1, D, E)
     vk(profondeur - 1, E, B)
+
+W = 800
+img = Image.new("RGB", (W, 300))
+CTX = ImageDraw.Draw(img)
+
+vk(3, (0, 0), (W - 1, 0), width=5)
+img.save("vk.png")
+img.show()
