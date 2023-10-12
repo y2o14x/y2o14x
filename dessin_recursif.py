@@ -9,10 +9,10 @@ def vk(profondeur, A, B, **kwargs):
     C = tg.homothetie(B, A, 1/3)
     E = tg.homothetie(B, A, 2/3)
     D = tg.rotation60(E, C)
-    vk(profondeur - 1, A, C)
-    vk(profondeur - 1, C, D)
-    vk(profondeur - 1, D, E)
-    vk(profondeur - 1, E, B)
+    vk(profondeur - 1, A, C, **kwargs)
+    vk(profondeur - 1, C, D, **kwargs)
+    vk(profondeur - 1, D, E, **kwargs)
+    vk(profondeur - 1, E, B, **kwargs)
 
 W = 800
 img = Image.new("RGB", (W, 300))
