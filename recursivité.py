@@ -86,7 +86,6 @@ def bin_s(T, e):
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
-    doctest.testmod()
 
 
 
